@@ -4,8 +4,20 @@ import 'package:flutter_application_1/widget/componant/box.dart';
 
 covidData covid = covidData();
 
-class TotalNewRecovered extends StatelessWidget {
-  const TotalNewRecovered ({super.key});
+class NewRecovered extends StatelessWidget {
+  final double width;
+  final double height;
+  final String head;
+  final BorderRadiusGeometry borderRadius;
+  final Color color;
+
+  const NewRecovered(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.head,
+      required this.borderRadius,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +31,31 @@ class TotalNewRecovered extends StatelessWidget {
         if (snapshot.hasData ||
             snapshot.connectionState == ConnectionState.done) {
           return Box(
+            head: head,
             title: covid.new_recovered.toString(),
-            width: 200,
-            height: 70,
+            width: width,
+            height: height,
+            borderRadius: borderRadius,
+            color: color,
           );
         } else if (snapshot.hasError) {
-          return const Box(title: "Error fetching data", width: 200, height: 150);
+          return const Box(
+            head: "Error",
+            title: "Error fetching data",
+            width: 200,
+            height: 150,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Colors.red,
+          );
         } else {
-          return const Box(title: "No data" , width: 200, height: 150);
+          return const Box(
+            head: "Error",
+            title: "No data",
+            width: 200,
+            height: 150,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Colors.red,
+          );
         }
       },
     );

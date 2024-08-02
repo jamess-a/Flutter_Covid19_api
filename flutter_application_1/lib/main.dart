@@ -1,10 +1,16 @@
 import 'dart:convert';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/widget/new_case.dart';
 import 'package:flutter_application_1/widget/show_newrecoved.dart';
+import 'package:flutter_application_1/widget/total_case.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'widget/showdate.dart';
 import 'widget/show_recoved.dart';
 import 'widget/show_newrecoved.dart';
+import 'widget/total_death.dart';
+import 'widget/new_death.dart';
+import 'widget/new_casewalkin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -86,23 +92,129 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Column(children: [
-          ShowDate(),
-          Row( 
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TotalNewRecovered(),
-              TotalRecovered(),
-            ],
-          ),
-        ]),
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: Text(widget.title),
+          centerTitle: true,
+        ),
+        backgroundColor: Colors.grey,
+        body: const Padding(
+          padding: EdgeInsets.all(5.0),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  width: 50,
+                  child: ShowDate(width: 150, height: 60 , color: Color.fromARGB(255, 0, 255, 4),),
+                ),
+                SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      NewRecovered(
+                        width: 190,
+                        height: 150,
+                        head: "New Recover",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(12.0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 255, 0, 85),
+                      ),
+                      TotalRecovered(
+                        width: 190,
+                        height: 150,
+                        head: "Total Recover",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(12.0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 255, 230, 0),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      NewCase(
+                        width: 190,
+                        height: 150,
+                        head: "New Case",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 4, 0, 255),
+                      ),
+                      TotalCase(
+                        width: 190,
+                        height: 150,
+                        head: "Total Case",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 30, 255, 0),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 500,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CaseWalkin(
+                        width: 127,
+                        height: 80,
+                        head: "Case Walkin",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(12),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 255, 0, 51),
+                      ),
+                      NewDeath(
+                        width: 127,
+                        height: 80,
+                        head: "New Death",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                        ),
+                        color: Color.fromARGB(255, 10, 194, 255),
+                      ),
+                      TotalDeath(
+                        width: 127,
+                        height: 80,
+                        head: "Total Death",
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(12.0),
+                        ),
+                        color: Color.fromARGB(255, 255, 153, 0),
+                      ),
+                    ],
+                  ),
+                )
+              ]),
+        ));
   }
 }

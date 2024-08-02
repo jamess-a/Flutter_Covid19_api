@@ -4,14 +4,14 @@ import 'package:flutter_application_1/widget/componant/box.dart';
 
 covidData covid = covidData();
 
-class TotalRecovered extends StatelessWidget {
+class NewCase extends StatelessWidget {
   final double width;
   final double height;
   final String head;
   final BorderRadiusGeometry borderRadius;
   final Color color;
 
-  const TotalRecovered(
+  const NewCase(
       {super.key,
       required this.width,
       required this.height,
@@ -32,7 +32,7 @@ class TotalRecovered extends StatelessWidget {
             snapshot.connectionState == ConnectionState.done) {
           return Box(
             head: head,
-            title: covid.total_recovered.toString(),
+            title: covid.new_case.toString(),
             width: width,
             height: height,
             borderRadius: borderRadius,
@@ -40,22 +40,22 @@ class TotalRecovered extends StatelessWidget {
           );
         } else if (snapshot.hasError) {
           return const Box(
-            head: "Error",
-            title: "Error fetching data",
-            width: 200,
-            height: 150,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: Colors.red,
-          );
+              head: "Error",
+              title: "Error fetching data",
+              width: 200,
+              height: 150,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: Colors.red,
+              );
         } else {
           return const Box(
-            head: "Error",
-            title: "No data",
-            width: 200,
-            height: 150,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: Colors.red,
-          );
+              head: "Error",
+              title: "No data",
+              width: 200,
+              height: 150,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: Colors.red,
+              );
         }
       },
     );

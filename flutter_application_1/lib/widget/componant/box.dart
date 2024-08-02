@@ -4,12 +4,18 @@ class Box extends StatelessWidget {
   final double width;
   final double height;
   final String title;
+  final String head;
+  final BorderRadiusGeometry borderRadius;
+  final Color color;
 
   const Box({
-    super.key, 
-    required this.title, 
-    required this.height, 
-    required this.width
+    super.key,
+    required this.head,
+    required this.title,
+    required this.height,
+    required this.width,
+    required this.borderRadius, 
+    required this.color,
   });
 
   @override
@@ -18,8 +24,8 @@ class Box extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
+        color: color,
+        borderRadius: borderRadius,
         border: Border.all(
           color: Colors.grey,
         ),
@@ -29,12 +35,17 @@ class Box extends StatelessWidget {
             spreadRadius: 1,
             blurRadius: 1,
             offset: const Offset(0, 3),
-          )
+          ),
         ],
       ),
       child: Center(
-        child: Text(
-          title,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(head),
+            Text(title),
+          ],
         ),
       ),
     );

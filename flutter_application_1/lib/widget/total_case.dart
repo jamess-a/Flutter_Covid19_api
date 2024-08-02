@@ -4,21 +4,20 @@ import 'package:flutter_application_1/widget/componant/box.dart';
 
 covidData covid = covidData();
 
-class TotalRecovered extends StatelessWidget {
+class TotalCase extends StatelessWidget {
   final double width;
   final double height;
   final String head;
   final BorderRadiusGeometry borderRadius;
   final Color color;
 
-  const TotalRecovered(
+  const TotalCase(
       {super.key,
       required this.width,
       required this.height,
       required this.head,
       required this.borderRadius,
       required this.color});
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -32,7 +31,7 @@ class TotalRecovered extends StatelessWidget {
             snapshot.connectionState == ConnectionState.done) {
           return Box(
             head: head,
-            title: covid.total_recovered.toString(),
+            title: covid.total_case.toString(),
             width: width,
             height: height,
             borderRadius: borderRadius,
