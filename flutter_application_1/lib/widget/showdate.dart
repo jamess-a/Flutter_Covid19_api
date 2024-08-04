@@ -8,7 +8,6 @@ String thaidate = covid.update_date;
 String formattedDate = convertDate(thaidate);
 
 String convertDate(String thaidate) {
-  // Define Thai months
   List<String> thaiMonths = [
     "มกราคม",
     "กุมพาพันธ์",
@@ -31,14 +30,10 @@ String convertDate(String thaidate) {
 }
 
 class ShowDate extends StatelessWidget {
-  final double width;
-  final double height;
   final Color color;
 
   const ShowDate({
     super.key,
-    required this.width,
-    required this.height,
     required this.color,
   });
 
@@ -54,11 +49,11 @@ class ShowDate extends StatelessWidget {
         if (snapshot.hasData ||
             snapshot.connectionState == ConnectionState.done) {
           return Container(
-            width: width,
-            height: height,
+            width: 330,
+            height: 60, 
             decoration: BoxDecoration(
-              color:color,
-              borderRadius: BorderRadius.circular(10),
+              color: color,
+              borderRadius: BorderRadius.circular(30),
               border: Border.all(
                 color: Colors.grey,
               ),
@@ -75,30 +70,16 @@ class ShowDate extends StatelessWidget {
                 child: Text(
               formattedDate,
               style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
               textAlign: TextAlign.center,
             )),
           );
         } else if (snapshot.hasError) {
-          return const Box(
-            head: "Error",
-            title: "Error fetching data",
-            width: 200,
-            height: 150,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: Colors.red,
-          );
+          return const Text('Error loading data');
         } else {
-          return const Box(
-            head: "Error",
-            title: "No data",
-            width: 200,
-            height: 150,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            color: Colors.red,
-          );
+          return const Text('No data available');
         }
       },
     );

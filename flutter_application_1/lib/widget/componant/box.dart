@@ -14,7 +14,7 @@ class Box extends StatelessWidget {
     required this.title,
     required this.height,
     required this.width,
-    required this.borderRadius, 
+    required this.borderRadius,
     required this.color,
   });
 
@@ -43,8 +43,15 @@ class Box extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(head),
-            Text(title),
+            Text(
+              head,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15 , color: Colors.white),
+            ),
+            Text(
+              "+"+
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold , fontSize: 32 , color: Colors.white),
+            ),
           ],
         ),
       ),

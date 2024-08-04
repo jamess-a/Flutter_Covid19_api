@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/widget/new_case.dart';
-import 'package:flutter_application_1/widget/show_newrecoved.dart';
-import 'package:flutter_application_1/widget/total_case.dart';
+import 'widget/new_case.dart';
+import 'widget/total_case.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'widget/showdate.dart';
@@ -93,83 +94,96 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: const Color.fromARGB(120, 33, 149, 243),
           title: Text(widget.title),
           centerTitle: true,
         ),
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromARGB(255, 244, 238, 238),
         body: const Padding(
           padding: EdgeInsets.all(5.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 50,
-                  child: ShowDate(width: 150, height: 60 , color: Color.fromARGB(255, 0, 255, 4),),
+                ShowDate(
+                  color: Color.fromARGB(255, 240, 237, 71),
                 ),
                 SizedBox(
+                  height: 2,
+                ),
+                SizedBox(
+                    child: Padding(
+                  padding: EdgeInsets.all(5.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       NewRecovered(
                         width: 190,
                         height: 150,
-                        head: "New Recover",
+                        head: "หายป่วยวันนี้",
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(12.0),
+                          topLeft: Radius.circular(20.0),
                           topRight: Radius.circular(0),
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 255, 0, 85),
+                        color: Color.fromARGB(255, 0, 255, 55),
+                      ),
+                      SizedBox(
+                        width: 5,
                       ),
                       TotalRecovered(
                         width: 190,
                         height: 150,
-                        head: "Total Recover",
+                        head: "หายป่วยสะสม",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
-                          topRight: Radius.circular(12.0),
+                          topRight: Radius.circular(20.0),
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 255, 230, 0),
+                        color: Color.fromARGB(255, 72, 255, 0),
                       ),
                     ],
                   ),
-                ),
+                )),
                 SizedBox(
+                    child: Padding(
+                  padding: EdgeInsets.only(bottom: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       NewCase(
                         width: 190,
                         height: 150,
-                        head: "New Case",
+                        head: "จำนวนผู้ป่วยใหม่วันนี้",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 4, 0, 255),
+                        color: Color.fromARGB(255, 255, 0, 0),
+                      ),
+                      SizedBox(
+                        width: 5,
                       ),
                       TotalCase(
                         width: 190,
                         height: 150,
-                        head: "Total Case",
+                        head: "จำนวนสะสม",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 30, 255, 0),
+                        color: Color.fromARGB(255, 255, 55, 0),
                       ),
                     ],
                   ),
-                ),
+                )),
+                SizedBox(height: 2),
                 SizedBox(
                   width: 500,
                   child: Row(
@@ -190,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       NewDeath(
                         width: 127,
                         height: 80,
-                        head: "New Death",
+                        head: "เสียชีวิตเพิ่ม",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
@@ -202,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       TotalDeath(
                         width: 127,
                         height: 80,
-                        head: "Total Death",
+                        head: "เสียชีวิตสะสม",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
