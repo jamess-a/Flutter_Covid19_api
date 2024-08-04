@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         backgroundColor: Color.fromARGB(255, 244, 238, 238),
         body: const Padding(
-          padding: EdgeInsets.all(5.0),
+          padding: EdgeInsets.all(2.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,11 +109,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Color.fromARGB(255, 240, 237, 71),
                 ),
                 SizedBox(
-                  height: 2,
+                  height: 1,
                 ),
                 SizedBox(
                     child: Padding(
-                  padding: EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(3.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -127,10 +127,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 0, 255, 55),
+                        color: Color.fromARGB(226, 0, 255, 55),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 4,
                       ),
                       TotalRecovered(
                         width: 190,
@@ -138,52 +138,38 @@ class _MyHomePageState extends State<MyHomePage> {
                         head: "หายป่วยสะสม",
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
-                          topRight: Radius.circular(20.0),
+                          topRight: Radius.circular(20),
                           bottomLeft: Radius.circular(0),
                           bottomRight: Radius.circular(0),
                         ),
-                        color: Color.fromARGB(255, 72, 255, 0),
+                        color: Color.fromARGB(204, 72, 255, 0),
                       ),
                     ],
                   ),
                 )),
                 SizedBox(
                     child: Padding(
-                  padding: EdgeInsets.only(bottom: 5),
+                  padding: EdgeInsets.only(bottom: 2),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       NewCase(
                         width: 190,
                         height: 150,
-                        head: "จำนวนผู้ป่วยใหม่วันนี้",
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                        ),
-                        color: Color.fromARGB(255, 255, 0, 0),
+                        color: Color.fromARGB(255, 240, 59, 46),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 4,
                       ),
                       TotalCase(
                         width: 190,
                         height: 150,
-                        head: "จำนวนสะสม",
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                        ),
-                        color: Color.fromARGB(255, 255, 55, 0),
+                        color: Color.fromARGB(225, 255, 94, 0),
                       ),
                     ],
                   ),
                 )),
-                SizedBox(height: 2),
+                SizedBox(height: 1),
                 SizedBox(
                   width: 500,
                   child: Row(
@@ -196,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(12),
+                          bottomLeft: Radius.circular(20),
                           bottomRight: Radius.circular(0),
                         ),
                         color: Color.fromARGB(255, 255, 0, 51),
@@ -205,12 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 127,
                         height: 80,
                         head: "เสียชีวิตเพิ่ม",
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                        ),
+                        borderRadius: BorderRadius.only(),
                         color: Color.fromARGB(255, 10, 194, 255),
                       ),
                       TotalDeath(
@@ -221,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           topLeft: Radius.circular(0),
                           topRight: Radius.circular(0),
                           bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(12.0),
+                          bottomRight: Radius.circular(20),
                         ),
                         color: Color.fromARGB(255, 255, 153, 0),
                       ),

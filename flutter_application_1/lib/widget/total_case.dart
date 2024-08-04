@@ -7,17 +7,15 @@ covidData covid = covidData();
 class TotalCase extends StatelessWidget {
   final double width;
   final double height;
-  final String head;
-  final BorderRadiusGeometry borderRadius;
   final Color color;
 
-  const TotalCase(
-      {super.key,
-      required this.width,
-      required this.height,
-      required this.head,
-      required this.borderRadius,
-      required this.color});
+  const TotalCase({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.color,
+  });
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -29,13 +27,54 @@ class TotalCase extends StatelessWidget {
         }
         if (snapshot.hasData ||
             snapshot.connectionState == ConnectionState.done) {
-          return Box(
-            head: head,
-            title: covid.total_case.toString(),
+          return Container(
+            padding: const EdgeInsets.all(15.0),
             width: width,
             height: height,
-            borderRadius: borderRadius,
-            color: color,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(0),
+              border: Border.all(
+                color: Colors.grey,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    "ป่วยสะสม",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.white),
+                  ),
+                  const Text(
+                    "ตั้งเเต่ 1 มกราคม 2565",
+                    style:TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 9,
+                        color: Colors.white),
+                  ),
+                  Text(
+                    "${covid.total_case}",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
           );
         } else if (snapshot.hasError) {
           return const Box(
